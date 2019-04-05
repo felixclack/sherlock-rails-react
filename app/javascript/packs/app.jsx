@@ -1,4 +1,4 @@
-import { ApolloProvider } from "react-apollo"
+import { ApolloProvider } from 'react-apollo'
 import { Container } from 'styled-bootstrap-components'
 import { render } from 'react-dom'
 import ApolloClient from 'apollo-boost'
@@ -7,12 +7,13 @@ import Users from './users'
 
 const client = new ApolloClient({
   fetchOptions: {
-    credentials: 'same-origin',
+    credentials: 'same-origin'
   },
   request: (operation) => {
-    const csrfToken = document.querySelector('meta[name=csrf-token]').getAttribute('content')
+    const csrfToken =
+      document.querySelector('meta[name=csrf-token]').getAttribute('content')
     operation.setContext({
-      headers: { "X-CSRF-Token": csrfToken }
+      headers: { 'X-CSRF-Token': csrfToken }
     })
   }
 })
