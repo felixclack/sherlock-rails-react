@@ -1,4 +1,5 @@
 import { ApolloProvider } from "react-apollo"
+import { Container } from 'styled-bootstrap-components'
 import { render } from 'react-dom'
 import ApolloClient from 'apollo-boost'
 import React from 'react'
@@ -18,10 +19,10 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <div>
+    <Container>
       <Header />
       <Users />
-    </div>
+    </Container>
   </ApolloProvider>
 )
 

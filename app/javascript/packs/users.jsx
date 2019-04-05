@@ -1,3 +1,4 @@
+import { Table, Tr } from 'styled-bootstrap-components'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import React from 'react'
@@ -19,29 +20,31 @@ const Users = () => (
     {({ loading, error, data }) => {
       if (loading) { return <p>Loading...</p> }
       return (
-        <table>
+        <Table>
           <thead>
-            <th>Name</th>
-            <th>Birthdate</th>
-            <th>Phone</th>
-            <th>Job</th>
+            <Tr>
+              <th>Name</th>
+              <th>Birthdate</th>
+              <th>Phone</th>
+              <th>Job</th>
+            </Tr>
           </thead>
           <tbody>
             {data.usersAll.map(user => <Row key={user.id} user={user} />)}
           </tbody>
-        </table>
+        </Table>
       )
     }}
   </Query>
 )
 
 const Row = ({ user: { birthdate, job, phone, name } }) => (
-  <tr>
+  <Tr light>
     <td>{name}</td>
     <td>{birthdate}</td>
     <td>{phone}</td>
     <td>{job}</td>
-  </tr>
+  </Tr>
 )
 
 export default Users
